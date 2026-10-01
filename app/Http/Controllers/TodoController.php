@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 
 use App\Models\Todo;
 
+use App\Http\Requests\TodoRequest;
+
 class TodoController extends Controller
 {
     //
@@ -18,9 +20,12 @@ class TodoController extends Controller
 
     public function store(Request $request)
     {
-        $todo = $request->only(['content']);
-        Todo::create($todo);
+        $validatedData = $request->validate([
+            'content' => 'required|string|max:20'
+        ]);
 
-        return redirect('/');
+        Todo::create($validatedData);
+
+        return redirect('/')->with('message', 'Todoを作成しました');
     }
 }
