@@ -3,7 +3,9 @@
 ## 概要
 Laravelを用いたTodoアプリです。
 - Todo一覧ページ：Todoの登録、更新、削除、検索することができる。
+<img width="1244" height="691" alt="Todo一覧ページ" src="https://github.com/user-attachments/assets/09dc6101-79c0-46cb-853f-774dbfd7be5a" />
 - カテゴリ一覧ページ：Todoに紐づけするカテゴリを表示、登録、更新、削除することができる。
+<img width="1206" height="546" alt="カテゴリ一覧ページ" src="https://github.com/user-attachments/assets/6080d295-0535-420d-92ac-179781923a1f" />
 
 ## 使用技術
 - PHP 8.x
