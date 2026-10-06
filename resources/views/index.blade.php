@@ -38,8 +38,10 @@
           value="{{ old('content') }}"
           placeholder="Todoを入力してください"
         />
-        <select class="create-form__item-select" name="category_id">
-          <option value="">カテゴリー</option>
+        <select class="search-form__item-select" name="category_id">
+            @foreach ($categories as $category)
+              <option value="{{ $category['id'] }}">{{ $category['name'] }}</option>
+            @endforeach
         </select>
       </div>
 
@@ -57,12 +59,14 @@
         <input
           class="search-form__item-input"
           type="text"
-          name="content"
-          value="{{ old('content') }}"
+          name="keyword"
+          value="{{ old('keyword') }}"
           placeholder="Todoを検索してください"
         >
         <select class="search-form__item-select" name="category_id">
-          <option value="">カテゴリー</option>
+            @foreach ($categories as $category)
+              <option value="{{ $category['id'] }}">{{ $category['name'] }}</option>
+            @endforeach
         </select>
       </div>
 
@@ -83,12 +87,14 @@
                 @csrf
                 @method('PATCH')
                 <div class="update-form__item">
-                  <input
-                    class="update-form__item-input"
-                    type="text"
-                    name="content"
-                    value="{{ $todo['content'] }}"
-                  >
+                  <input class="update-form__item-input" type="text" name="content" value="{{ $todo['content'] }}">
+                  <input type="hidden" name="id" value="{{ $todo['id'] }}">
+                </div>
+                <div class="update-form__item">
+                   <p class="update-form__itme-p">{{ $todo['category']['name'] }}</p>
+                </div>
+                  <div class="update-form__button">
+                    <button class="update-form__button-submit" type="submit">更新</button>
                 </div>
               </form>
             </td>
@@ -104,30 +110,6 @@
             </td>
           </tr>
         @endforeach
-        <tr class="todo-table__row">
-          <td class="todo-table__item">
-            <form class="update-form">
-              <div class="update-form__item">
-                <input
-                  class="update-form__item-input"
-                  type="text"
-                  name="content"
-                  value="test2"
-                >
-              </div>
-              <div class="update-form__button">
-                <button class="update-form__button-submit" type="submit">更新</button>
-              </div>
-            </form>
-          </td>
-          <td class="todo-table__item">
-            <form class="delete-form">
-              <div class="delete-form__button">
-                <button class="delete-form__button-submit" type="submit">削除</button>
-              </div>
-            </form>
-          </td>
-        </tr>
       </table>
     </div>
   </div>
