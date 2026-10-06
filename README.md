@@ -12,7 +12,7 @@ Laravelを用いたTodoアプリです。
 - MySQL
 
 ## ディレクトリ構成（抜粋）
-```text
+```
 todo-app/
     ├── app/                                # MVCのモデル（M） とコントローラー(C)
         └── Https/                          
@@ -56,11 +56,11 @@ todo-app/
 
 ## 動作確認
 1. Githubからリポジトリをクローン
-'''text
+```
 git clone git@github.com:aridome-sashizume/Todo-app.git
-'''
+```
 2. Sailを起動
-'''text
+```
 ./vendor/bin/sail up -d
-'''
+```
 3. http://localhost にアクセス
